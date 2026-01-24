@@ -60,7 +60,7 @@ const HomePage = () => {
             transition={{ delay: 0.5 }}
             className="font-body text-lg md:text-xl text-muted-foreground mt-4 mb-8"
           >
-            Together Forever | સાત ફેરાનો અવિનાશી બંધન
+            Together Forever | સાથે સદાકાળ
           </motion.p>
 
           <FloralDivider />

@@ -107,6 +107,11 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Lato', sans-serif;
