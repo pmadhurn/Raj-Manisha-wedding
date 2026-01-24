@@ -13,18 +13,18 @@ const navItems = [
 
 /**
  * Glass Effect Configuration - macOS Tahoe / iOS Style
- * Modern frosted glass with high transparency and strong blur
- * - Ultra-low opacity background for maximum transparency
- * - Strong backdrop blur (3xl) for depth
- * - Subtle gradient overlay for light refraction effect
- * - Refined border with low opacity for glass edge
+ * Frosted glass material with visible tint and strong blur
+ * - Gray-tinted background for material presence (like Tahoe Control Center)
+ * - Maximum backdrop blur for depth
+ * - Saturation boost for vibrant colors behind glass
+ * - Subtle inner glow and shadow for glass edge depth
  */
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/5 backdrop-blur-3xl backdrop-saturate-150 border-b border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_1px_2px_rgba(0,0,0,0.05)] supports-[backdrop-filter]:bg-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-500/20 backdrop-blur-3xl backdrop-saturate-[1.8] border-b border-white/15 shadow-[inset_0_0.5px_0_rgba(255,255,255,0.25),0_2px_8px_rgba(0,0,0,0.12)] supports-[backdrop-filter]:bg-gray-500/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -62,7 +62,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/5 backdrop-blur-3xl backdrop-saturate-150 border-b border-white/10"
+            className="md:hidden bg-gray-500/20 backdrop-blur-3xl backdrop-saturate-[1.8] border-b border-white/15"
           >
             <div className="container mx-auto px-4 py-4 space-y-2">
               {navItems.map((item) => (
