@@ -11,16 +11,25 @@ const navItems = [
   { path: '#contact', label: 'Contact', labelGu: 'સંપર્ક' },
 ];
 
+/**
+ * Glass Effect Configuration
+ * To adjust the glass effect, modify the following classes in the <nav> element:
+ * 1. Background Opacity: `bg-white/10` -> Lower number = more transparent, Higher = more opaque.
+ * 2. Blur Amount: `backdrop-blur-md` -> `backdrop-blur-xl` -> `backdrop-blur-2xl` -> Higher = more blurry background.
+ * 3. Border: `border-white/20` -> Controls the subtle edge. Adjust opacity as needed.
+ * 4. Shadow: `shadow-sm` or `shadow-md` -> Adds depth.
+ */
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-xl border-b border-white/20 shadow-sm supports-[backdrop-filter]:bg-white/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-sm supports-[backdrop-filter]:bg-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
-            <span className="font-script text-2xl md:text-3xl text-rose-gold">R & M</span>
+            <span className="font-script text-2xl md:text-3xl text-rose-gold drop-shadow-sm">R & M</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -29,7 +38,7 @@ const Navigation = () => {
               <a
                 key={item.path}
                 href={item.path}
-                className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-foreground/70 hover:text-rose-gold hover:bg-peach-light"
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-foreground/80 hover:text-rose-gold hover:bg-white/20 hover:backdrop-blur-sm"
               >
                 {item.label}
               </a>
@@ -39,7 +48,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-rose-gold"
+            className="md:hidden p-2 text-rose-gold hover:bg-white/20 rounded-full transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -53,7 +62,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/90 backdrop-blur-xl border-b border-rose-gold/10"
+            className="md:hidden bg-white/30 backdrop-blur-2xl border-b border-white/20"
           >
             <div className="container mx-auto px-4 py-4 space-y-2">
               {navItems.map((item) => (
@@ -61,7 +70,7 @@ const Navigation = () => {
                   key={item.path}
                   href={item.path}
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 rounded-lg text-center transition-all text-foreground/70 hover:bg-peach-light"
+                  className="block px-4 py-3 rounded-lg text-center transition-all text-foreground/80 hover:bg-white/40 hover:text-rose-gold"
                 >
                   <span className="font-medium">{item.label}</span>
                   <span className="block text-xs opacity-70">{item.labelGu}</span>
