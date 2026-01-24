@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import FloralDivider from '@/components/FloralDivider';
 
 const children = [
-  { name: 'Manya', nameGu: 'માન્યા', emoji: '🌸' },
+  { name: 'Maanya', nameGu: 'માન્યા', emoji: '🌸' },
   { name: 'Aadhya', nameGu: 'આધ્યા', emoji: '🌺' },
   { name: 'Moksh', nameGu: 'મોક્ષ', emoji: '🌻' },
   { name: 'Freya', nameGu: 'ફ્રેયા', emoji: '🌷' },
