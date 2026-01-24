@@ -32,6 +32,14 @@ const contacts: Contact[] = [
     roleGu: 'ભાઈ',
     phone: '9016273812',
   },
+  {
+    name: 'Nishant Nareshbhai Patel',
+    nameGu: 'નિશાંત નરેશભાઈ પટેલ',
+    role: 'Niece',
+    roleGu: 'ભત્રીજો',
+    phone: '6352205052',
+  },
+
 ];
 
 const ContactPage = () => {
@@ -86,7 +94,7 @@ const ContactPage = () => {
                     <Phone size={16} className="text-rose-gold" />
                     {contact.phone}
                   </p>
-                  
+
                   <div className="flex gap-2">
                     <a
                       href={`https://wa.me/91${contact.phone}`}

@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section 
+      <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
         style={{
           backgroundImage: `url(${heroFloralBg})`,
@@ -17,7 +17,7 @@ const HomePage = () => {
       >
         {/* Overlay for text readability */}
         <div className="absolute inset-0 bg-background/40 backdrop-blur-[2px]" />
-        
+
         {/* Decorative circles */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-peach/30 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-lavender/40 rounded-full blur-3xl" />
@@ -125,14 +125,14 @@ const HomePage = () => {
             <h2 className="font-script text-4xl md:text-5xl text-rose-gold mb-8">
               You're Invited
             </h2>
-            
+
             <div className="card-floral p-8 md:p-12 floral-border">
               <p className="font-body text-lg md:text-xl leading-relaxed text-foreground/80 mb-6">
-                With the blessings of Lord Ganesha and Ambuda Mataji, we joyfully invite you to celebrate the union of our beloved Raj and Manisha. Your presence will make our celebration complete.
+                With the blessings of Lord Ganesha and Arbuda Mata, we joyfully invite you to celebrate the union of our beloved Raj and Manisha. Your presence will make our celebration complete.
               </p>
-              
+
               <FloralDivider className="py-4" />
-              
+
               <p className="font-body text-lg leading-relaxed text-foreground/70">
                 શ્રી ગણેશજી અને અર્બુદા માતાજીના આશીર્વાદથી, અમે આપને અમારા વ્હાલા રાજ અને મનિષાના શુભ વિવાહ પ્રસંગે હાર્દિક આમંત્રણ પાઠવીએ છીએ. આપની ઉપસ્થિતિથી અમારો આનંદ દ્વિગુણિત થશે.
               </p>
