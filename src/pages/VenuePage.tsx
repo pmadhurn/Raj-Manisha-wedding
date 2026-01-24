@@ -3,7 +3,7 @@ import { MapPin, Navigation, Phone, Hotel } from 'lucide-react';
 import FloralDivider from '@/components/FloralDivider';
 
 const VenuePage = () => {
-  const googleMapsUrl = 'https://maps.app.goo.gl/zCtJZHjy5NqAiSnR7';
+  const googleMapsUrl = 'https://www.google.com/maps/place/Madhur+N+Patel%E2%80%99s+Home/@23.9372001,73.3586803,21z/data=!4m6!3m5!1s0x395d83d807d42b85:0x1df4ff763d96306!8m2!3d23.9371207!4d73.3586352!16s%2Fg%2F11t52b97lk?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D';
 
   return (
     <div className="min-h-screen pt-24 pb-16 watercolor-bg">
@@ -42,7 +42,7 @@ const VenuePage = () => {
             {/* Map Embed */}
             <div className="rounded-xl overflow-hidden mb-6 border border-rose-gold/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14666.84867044477!2d73.18!3d23.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c7b6f86c1ddf3%3A0x8c99c8abbe6f7e1e!2sDadhvav%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1706000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/place/Madhur+N+Patel%E2%80%99s+Home/@23.9372001,73.3586803,21z/data=!4m6!3m5!1s0x395d83d807d42b85:0x1df4ff763d96306!8m2!3d23.9371207!4d73.3586352!16s%2Fg%2F11t52b97lk?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
@@ -77,7 +77,7 @@ const VenuePage = () => {
             <div className="text-4xl mb-4">👗👔</div>
             <h2 className="font-display text-2xl text-foreground mb-2">What to Wear</h2>
             <p className="font-display text-lg text-rose-gold mb-4">શું પહેરવું</p>
-            
+
             <div className="bg-gradient-to-r from-peach-light/50 to-lavender/30 rounded-xl p-6 mb-4">
               <p className="font-display text-xl text-rose-gold mb-2">Any Attire is Welcome!</p>
               <p className="text-foreground/80 mb-4">

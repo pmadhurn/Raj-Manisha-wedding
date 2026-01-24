@@ -35,7 +35,7 @@ const HomePage = () => {
               ॥ શ્રી ગણેશાય નમઃ ॥
             </p>
             <p className="font-display text-lg md:text-xl text-rose-gold">
-              ॥ શ્રી અંબુદા માતાય નમઃ ॥
+              ॥ શ્રી અર્બુદા માતાય નમઃ ॥
             </p>
           </motion.div>
 
