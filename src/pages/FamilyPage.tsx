@@ -11,6 +11,7 @@ const children = [
   { name: 'Pransh', nameGu: 'પ્રાંશ', emoji: '🌹' },
   { name: 'Nayra', nameGu: 'નાયરા', emoji: '💐' },
   { name: 'Aarya', nameGu: 'આર્યા', emoji: '🪷' },
+  { name: 'Krisha', nameGu: 'કૃષા', emoji: '🏵️' },
 ];
 
 const FamilyPage = () => {
@@ -149,7 +150,6 @@ const FamilyPage = () => {
                 Brother • ભાઈ
               </h3>
               <div className="bg-gradient-to-r from-rose-gold/10 to-peach/20 rounded-xl p-4 text-center">
-                <span className="text-2xl mb-2 block">👦</span>
                 <p className="font-medium text-foreground">મધુર નટવરલાલ પટેલ</p>
                 <p className="text-sm text-muted-foreground">Madhur Natwarlal Patel</p>
               </div>
