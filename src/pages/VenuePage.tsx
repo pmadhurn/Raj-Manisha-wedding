@@ -42,7 +42,7 @@ const VenuePage = () => {
             {/* Map Embed */}
             <div className="rounded-xl overflow-hidden mb-6 border border-rose-gold/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14666.84867044477!2d73.18!3d23.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c7b6f86c1ddf3%3A0x8c99c8abbe6f7e1e!2sDadhvav%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1706000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d571.0118876712739!2d73.35848914594459!3d23.936926821229925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395d83d807d42b85%3A0x1df4ff763d96306!2sMadhur%20N%20Patel%E2%80%99s%20Home!5e0!3m2!1sen!2sin!4v1769258323264!5m2!1sen!2sin"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
