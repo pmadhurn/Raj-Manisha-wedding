@@ -1,5 +1,9 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import FloralDivider from '@/components/FloralDivider';
+import { menuData } from '@/data/menuData';
+import MenuHint from '@/components/MenuHint';
+import EventMenu from '@/components/EventMenu';
 
 interface WeddingEvent {
   id: number;
@@ -93,9 +97,28 @@ const events: WeddingEvent[] = [
     icon: '💒',
     color: 'from-rose-gold to-peach',
   },
+  {
+    id: 9,
+    nameEn: 'Post-Wedding Celebration',
+    nameGu: 'સ્નેહ મિલન',
+    date: '13th February 2026 (Friday)',
+    time: 'Morning',
+    descriptionEn: 'A gathering to celebrate the newlyweds with blessings and good food.',
+    icon: '🎉',
+    color: 'from-peach to-mint',
+  },
 ];
 
 const EventsPage = () => {
+  const [openEventId, setOpenEventId] = useState<number | null>(null);
+
+  const toggleMenu = (eventId: number) => {
+    // Check if menu exists for this event
+    if (!menuData[eventId]) return;
+
+    setOpenEventId(prev => prev === eventId ? null : eventId);
+  };
+
   return (
     <div className="min-h-screen pt-24 pb-16 watercolor-bg">
       <div className="container mx-auto px-4">
@@ -113,56 +136,105 @@ const EventsPage = () => {
 
         <FloralDivider />
 
+        <MenuHint />
+
         {/* Events Timeline */}
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-gold via-peach to-lavender" />
 
-            {events.map((event, index) => (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ delay: index * 0.1 }}
-                className={`relative mb-8 ${
-                  index % 2 === 0 ? 'md:pr-[50%] md:text-right' : 'md:pl-[50%] md:text-left'
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className={`absolute top-6 w-8 h-8 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center text-lg shadow-lg border-2 border-background left-0 md:left-1/2 md:-translate-x-1/2 z-10`}>
-                  {event.icon}
-                </div>
+            {events.map((event, index) => {
+              const hasMenu = !!menuData[event.id];
+              const isOpen = openEventId === event.id;
 
-                {/* Event Card */}
-                <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
-                  <div className={`card-floral p-6 bg-gradient-to-br ${event.color}/10 hover:shadow-xl transition-shadow duration-300`}>
-                    <div className="flex flex-col gap-1 mb-3">
-                      <h3 className="font-display text-xl md:text-2xl text-foreground">
-                        {event.nameEn}
-                      </h3>
-                      <p className="font-display text-lg text-rose-gold">
-                        {event.nameGu}
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="px-3 py-1 bg-background/80 rounded-full text-sm text-foreground/70">
-                        📅 {event.date}
-                      </span>
-                      <span className="px-3 py-1 bg-background/80 rounded-full text-sm text-foreground/70">
-                        🕐 {event.time}
-                      </span>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-sm md:text-base">
-                      {event.descriptionEn}
-                    </p>
+              return (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`relative mb-8 ${
+                    index % 2 === 0 ? 'md:pr-[50%] md:text-right' : 'md:pl-[50%] md:text-left'
+                  }`}
+                >
+                  {/* Timeline dot */}
+                  <div className={`absolute top-6 w-8 h-8 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center text-lg shadow-lg border-2 border-background left-0 md:left-1/2 md:-translate-x-1/2 z-10`}>
+                    {event.icon}
                   </div>
-                </div>
-              </motion.div>
-            ))}
+
+                  {/* Event Card */}
+                  <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+                    <div
+                      onClick={() => hasMenu && toggleMenu(event.id)}
+                      onKeyDown={(e) => {
+                        if (hasMenu && (e.key === 'Enter' || e.key === ' ')) {
+                          e.preventDefault();
+                          toggleMenu(event.id);
+                        }
+                      }}
+                      role={hasMenu ? "button" : undefined}
+                      tabIndex={hasMenu ? 0 : undefined}
+                      aria-expanded={hasMenu ? isOpen : undefined}
+                      className={`card-floral p-6 bg-gradient-to-br ${event.color}/10 transition-all duration-300
+                        ${hasMenu ? 'cursor-pointer hover:scale-[1.02] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2' : ''}
+                        ${isOpen ? 'ring-2 ring-rose-gold/30' : ''}
+                      `}
+                    >
+                      <div className="flex flex-col gap-1 mb-3">
+                        <div className={`flex items-start justify-between ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                          <h3 className="font-display text-xl md:text-2xl text-foreground">
+                            {event.nameEn}
+                          </h3>
+                          {hasMenu && (
+                            <span className="text-sm font-medium text-rose-gold bg-white/50 px-2 py-1 rounded-full border border-rose-gold/20 flex items-center gap-1 shrink-0">
+                              🍽️ <span className="hidden sm:inline">View Menu</span>
+                              <motion.span
+                                animate={{ rotate: isOpen ? 180 : 0 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                ▼
+                              </motion.span>
+                            </span>
+                          )}
+                        </div>
+                        <p className="font-display text-lg text-rose-gold">
+                          {event.nameGu}
+                        </p>
+                      </div>
+
+                      <div className={`flex flex-wrap gap-2 mb-3 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
+                        <span className="px-3 py-1 bg-background/80 rounded-full text-sm text-foreground/70">
+                          📅 {event.date}
+                        </span>
+                        <span className="px-3 py-1 bg-background/80 rounded-full text-sm text-foreground/70">
+                          🕐 {event.time}
+                        </span>
+                      </div>
+
+                      <p className="text-muted-foreground text-sm md:text-base mb-2">
+                        {event.descriptionEn}
+                      </p>
+
+                      <AnimatePresence>
+                        {isOpen && hasMenu && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                          >
+                            <EventMenu menu={menuData[event.id]} />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
