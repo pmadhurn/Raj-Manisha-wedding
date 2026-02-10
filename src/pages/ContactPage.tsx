@@ -37,7 +37,7 @@ const contacts: Contact[] = [
     nameGu: 'નિશાંત નરેશભાઈ પટેલ',
     role: 'Niece',
     roleGu: 'ભત્રીજો',
-    phone: '6352205052',
+    phone: '6352205053',
   },
 
 ];
